@@ -1,7 +1,7 @@
 Below is employee data of a small company.<br />
 It represents the hierarchical relationship among employees. CEO of the company doesn't have a manager. <br />
-<table border="1">
-  <tr style="font-weight:bold;"><td>Employee</td><td>NameId</td><td>ManagerId</td></tr>
+<table>
+  <tr><td style="font-weight:bold;">Employee</td><td style="font-weight:bold;">NameId</td><td style="font-weight:bold;">ManagerId</td></tr>
   <tr><td>Alan</td><td>100</td><td>150</td>
   <tr><td>Martin</td><td>220</td><td>100</td>
   <tr><td>Jamie</td><td>150</td><td> </td>
