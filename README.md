@@ -1,7 +1,7 @@
 Below is employee data of a small company.<br />
 It represents the hierarchical relationship among employees. CEO of the company doesn't have a manager. <br />
 <table border="1">
-  <tr><td>Employee</td><td>NameId</td><td>ManagerId</td></tr>
+  <tr style="font-weight:bold;"><td>Employee</td><td>NameId</td><td>ManagerId</td></tr>
   <tr><td>Alan</td><td>100</td><td>150</td>
   <tr><td>Martin</td><td>220</td><td>100</td>
   <tr><td>Jamie</td><td>150</td><td> </td>
@@ -12,11 +12,11 @@ It represents the hierarchical relationship among employees. CEO of the company 
 <p>Design a suitable representation of this data. Feel free to choose any database (RDBMS, inmemory database etc), file system or even a data structure like List or Map. Then write code (in any language and framework) that displays the organisation hierarchy as below:</p>
 <table border="1">
   <tr><td>Jamie</td><td> </td><td> </td></tr>
-  <tr><td>Jamie</td><td>Alan</td><td> </td></tr>
-  <tr><td>Jamie</td><td> </td><td>Matin</td></tr>
-  <tr><td>Jamie</td><td> </td><td>Alex</td></tr>
-  <tr><td>Jamie</td><td>Steve</td><td> </td></tr>
-  <tr><td>Jamie</td><td> </td><td>David</td></tr>
+  <tr><td> </td><td>Alan</td><td> </td></tr>
+  <tr><td> </td><td> </td><td>Matin</td></tr>
+  <tr><td> </td><td> </td><td>Alex</td></tr>
+  <tr><td> </td><td>Steve</td><td> </td></tr>
+  <tr><td> </td><td> </td><td>David</td></tr>
 </table>
 
 The result can be simply displayed on the console, or HTML page or even a file; whatever
