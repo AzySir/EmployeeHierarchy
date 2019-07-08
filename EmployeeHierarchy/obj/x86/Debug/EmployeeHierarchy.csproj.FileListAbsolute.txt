@@ -1,0 +1,6 @@
+/Users/639603/projects/EmployeeHierarchy/EmployeeHierarchy/obj/x86/Debug/EmployeeHierarchy.csproj.CoreCompileInputs.cache
+/Users/639603/projects/EmployeeHierarchy/EmployeeHierarchy/bin/Debug/EmployeeHierarchy.exe
+/Users/639603/projects/EmployeeHierarchy/EmployeeHierarchy/bin/Debug/EmployeeHierarchy.pdb
+/Users/639603/projects/EmployeeHierarchy/EmployeeHierarchy/obj/x86/Debug/EmployeeHierarchy.exe
+/Users/639603/projects/EmployeeHierarchy/EmployeeHierarchy/obj/x86/Debug/EmployeeHierarchy.pdb
+/Users/639603/projects/EmployeeHierarchy/EmployeeHierarchy/obj/x86/Debug/EmployeeHierarchy.csprojAssemblyReference.cache
