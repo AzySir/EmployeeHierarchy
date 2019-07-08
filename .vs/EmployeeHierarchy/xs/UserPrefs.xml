@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{93EE7EB6-6CA1-4F3C-A4CF-7605351A4492}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="EmployeeHierarchy/Program.cs">
     <Files>
-      <File FileName="EmployeeHierarchy/Employee.cs" Line="6" Column="26" />
-      <File FileName="EmployeeHierarchy/Program.cs" Line="3" Column="42" />
-      <File FileName="EmployeeHierarchy/CEO.cs" Line="14" Column="30" />
-      <File FileName="EmployeeHierarchy/Managers.cs" Line="27" Column="28" />
-      <File FileName="EmployeeHierarchy/StaffInformation.cs" Line="25" Column="30" />
-      <File FileName="EmployeeHierarchy/Manager.cs" Line="8" Column="1" />
+      <File FileName="EmployeeHierarchy/Employee.cs" Line="12" Column="1" />
+      <File FileName="EmployeeHierarchy/Program.cs" Line="29" Column="81" />
+      <File FileName="EmployeeHierarchy/CEO.cs" Line="18" Column="28" />
+      <File FileName="EmployeeHierarchy/Managers.cs" Line="13" Column="9" />
+      <File FileName="EmployeeHierarchy/StaffInformation.cs" Line="5" Column="6" />
+      <File FileName="EmployeeHierarchy/Manager.cs" Line="15" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
