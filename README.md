@@ -1,4 +1,4 @@
-Below is employee data of a small company.
+Below is employee data of a small company.<br />
 It represents the hierarchical relationship among employees. CEO of the company doesn't
 have a manager.
 Employee
