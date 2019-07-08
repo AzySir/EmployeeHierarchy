@@ -7,20 +7,17 @@ namespace EmployeeHierarchy
     {
         public String Name { get; set; }
         public int StaffId { get; set; }
-        public CEO() { }
-
-        public StaffInformation GetCEO(List<StaffInformation> StaffInfo)
-        {
-            StaffInformation ceo = null;
-            foreach (var staff in StaffInfo)
+        public List <StaffInformation> StaffList { get; set; }
+        public CEO(List<StaffInformation> StaffList) {
+            this.StaffList = StaffList;
+            foreach(var sl in StaffList)
             {
-                if (staff.ManagerId == 0) {
-                    ceo = staff;
-                    break;
-                }
+             if (sl.ManagerId == 0)
+                {
+                    this.Name = sl.Name;
+                    this.StaffId = sl.StaffId;
+                }   
             }
-            return ceo;
         }
-        
     }
 }

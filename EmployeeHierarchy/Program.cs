@@ -7,11 +7,13 @@ namespace EmployeeHierarchy
 {
     class App
     {
+        static List<StaffInformation> StaffList = new List<StaffInformation>();
+        static List<Manager> ManagerList = new List<Manager>();
+        static List<Employee> EmployeeList = new List<Employee>();
+
         public static void Main(string[] args)
         {
-            //Create the Staff List
-            List<StaffInformation> StaffList = new List<StaffInformation>();
-
+            //Create the Staff List   
             //Populate the Staff List with Objects
             StaffList.Add(new StaffInformation("Alan", 100, 150));
             StaffList.Add(new StaffInformation("Martin", 220, 100));
@@ -19,101 +21,63 @@ namespace EmployeeHierarchy
             StaffList.Add(new StaffInformation("Alex", 275, 100));
             StaffList.Add(new StaffInformation("Steve", 400, 150));
             StaffList.Add(new StaffInformation("David", 190, 400));
+            CEO ceo = new CEO(StaffList); //Create new CEO 
+            //StaffInformation si = new StaffInformation("Jamie", 150);
+            StaffList.RemoveAt(2); //########## NEED TO REMOVE THIS ##################
 
-            //CEO List - There is 1 in the example. There coudl be more
-            List<StaffInformation> CEOList = GetCEO(StaffList);
-
-            //Manager List
-            List<StaffInformation> ManagerList = new List<StaffInformation>();
-
-            //Managers and Employees List combined = Group
-            Dictionary<String, List<StaffInformation>> EmployeeAndManagerGroup = new Dictionary<String, List<StaffInformation>>();
-
-            //Remove CEO from StaffList
-            foreach (var x in CEOList)
-            {
-                StaffList.Remove(x);
-            }
-
-            //Find the Managers
-            foreach (var CEO in CEOList)
-            {   
-               ManagerList = StaffList.Where(x => x.ManagerId == CEO.StaffId).ToList();
-            }
-
-            //Create Groups
-            List<StaffInformation> Group = new List<StaffInformation>();
-            
-            foreach (var Manager in ManagerList)
-            {
-                //x.ManagerId = ManagerId of the Staff List Member
-                //Manager.StaffId = StaffId of the Manager
-                Group = StaffList.Where(x => x.ManagerId == Manager.StaffId).ToList();
-                if (EmployeeAndManagerGroup.ContainsKey(Manager.StaffId + "_Group"))
-                {
-                    EmployeeAndManagerGroup[Manager.StaffId + "_Group"] = Group;
-                }
-                else
-                {
-                    EmployeeAndManagerGroup.Add(Manager.StaffId + "_Group", Group);
-                }
-            }
-
-            
-            foreach (var g in Group)
-            {
-                Console.WriteLine("++++++++GROUP" + g.Name + "|" + g.StaffId + "|" + g.ManagerId);
-                //Console.WriteLine("++++++MANAGER" + Manager.Name + "|" + Manager.StaffId + "|" + Manager.ManagerId);
-            }
-
-            //PrintCEO(CEOList); //Print CEO
-            foreach (var g in EmployeeAndManagerGroup)
-                foreach (var Staff in g.Value)
-                {
-                    PrintEmployeeAndManagerGroup(g.Key, g.Value);
-                }
+            initManager(StaffList, ceo); //Initalize the Manager List
+            initEmployee(StaffList, ManagerList); //Initialize the Employee List
+            PrintHierarchy(ceo, ManagerList, EmployeeList); //Print the Employee Hierarchy 
         }
 
-        public static List<StaffInformation> GetCEO(List<StaffInformation> StaffList)
+        public static void initManager(List<StaffInformation> StaffList, CEO ceo)
         {
-            List<StaffInformation> CEOList = new List<StaffInformation>();
-            foreach (var Staff in StaffList)
-                if (Staff.ManagerId == 0)
+            foreach(var sl in StaffList)
+            {
+                if (sl.ManagerId == ceo.StaffId)
                 {
-                    CEOList.Add(Staff);
+                    Manager mn = new Manager(sl.Name, sl.StaffId, sl.ManagerId);
+                    if (!ManagerList.Any(x => x == mn))
+                    {
+                        ManagerList.Add(mn);
+                    }
                 }
-            return CEOList;
+            }
         }
 
-
-
-        public static void PrintCEO(List<StaffInformation> CEOList)
+        public static void initEmployee(List<StaffInformation> StaffList, List<Manager> Mgr)
         {
-            Console.WriteLine("_____________________");
-            foreach(var CEO in CEOList)
-                Console.WriteLine("|" + CEO.Name + "|_______|_______");
+            foreach (var mn in Mgr) 
+            {
+                foreach (var sl in StaffList)
+                {
+                    Console.WriteLine("Staff: " + sl.Name + " (" + sl.ManagerId + ")" + "Manager:" + mn.Name + "(" + mn.StaffId + ")");
+                    if (sl.ManagerId == mn.StaffId)
+                    {
+                        Console.WriteLine("Matches: " + mn.Name +"("+mn.StaffId+")" + "&"+ sl.Name + "(" + sl.StaffId + ")");
+                        EmployeeList.Add(new Employee(sl.Name, sl.StaffId, sl.ManagerId));
+                    }
+                }
+            }
         }
-        public static void PrintEmployeeAndManagerGroup(String Key, List<StaffInformation> Employees)
+        
+        public static void PrintHierarchy(CEO ceo, List<Manager> FinalManagerList, List<Employee> FinalEmployeeList)
         {
-            String[] KeyArray = Key.Split('_');
-            int MyKey = Int32.Parse(KeyArray[0]);
-            List<StaffInformation> Manager = Employees.Where(y => y.StaffId != MyKey).ToList();
-            List<StaffInformation> NormalEmployee = Employees.Where(x => x.StaffId != MyKey).ToList();
-            //Console.WriteLine(x.ManagerId + "|" + ManagerId);
-            //foreach(var e in Employees)
-            //{
-            //    Console.WriteLine(e.Name + "|" + e.StaffId + "|" + e.ManagerId);
-            //}
-
-            foreach (var m in Manager)
+            //Print CEO
+            Console.WriteLine("______________________"); //Start 
+            Console.WriteLine("|" + ceo.Name + "|_______|_______"); //Print CEO
+            foreach (var fml in FinalManagerList) //Loop Through Managers List
             {
-                Console.WriteLine("|___M____|" + m.Name + "|_______");
+                Console.WriteLine("|_______|" + fml.Name + "|_______"); //Print Managers Name
+                foreach (var fel in FinalEmployeeList)
+                {
+                    if (fel.ManagerId == fml.StaffId) //If Employee's ManagerId and ManagerId's StaffId is the same  
+                    {
+                        Console.WriteLine("|_______|_______" + fel.Name); //Print Employee Name
+                    }
+                }
             }
-            foreach (var e in NormalEmployee)
-            {
-                Console.WriteLine("|_______|____E___" + e.Name);
-            }
-            Console.WriteLine("_____________________");
+            Console.WriteLine("______________________"); //End 
         }
     }
 }
