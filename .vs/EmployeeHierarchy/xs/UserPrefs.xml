@@ -3,10 +3,10 @@
     <Files>
       <File FileName="EmployeeHierarchy/Employee.cs" Line="12" Column="1" />
       <File FileName="EmployeeHierarchy/Program.cs" Line="29" Column="81" />
-      <File FileName="EmployeeHierarchy/CEO.cs" Line="18" Column="28" />
-      <File FileName="EmployeeHierarchy/Managers.cs" Line="13" Column="9" />
-      <File FileName="EmployeeHierarchy/StaffInformation.cs" Line="5" Column="6" />
-      <File FileName="EmployeeHierarchy/Manager.cs" Line="15" Column="6" />
+      <File FileName="EmployeeHierarchy/CEO.cs" />
+      <File FileName="EmployeeHierarchy/Managers.cs" />
+      <File FileName="EmployeeHierarchy/StaffInformation.cs" />
+      <File FileName="EmployeeHierarchy/Manager.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

@@ -19,5 +19,13 @@ namespace EmployeeHierarchy
                 }   
             }
         }
+
+        public List<StaffInformation> RemoveFromStaffList(List<StaffInformation> StaffList)
+        {
+            StaffInformation si = new StaffInformation(this.Name, this.StaffId);
+            //StaffList.RemoveAt(2); //########## NEED TO REMOVE THIS ##################
+            StaffList.Remove(si);
+            return StaffList;
+        }
     }
 }

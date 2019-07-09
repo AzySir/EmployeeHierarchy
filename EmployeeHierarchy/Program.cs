@@ -13,7 +13,21 @@ namespace EmployeeHierarchy
 
         public static void Main(string[] args)
         {
-            //Create the Staff List   
+            displayEmployeeHierarchy();
+        }
+
+        public static void displayEmployeeHierarchy()
+        {
+            createData();
+            CEO ceo = new CEO(StaffList); //Create new CEO 
+            StaffList = ceo.RemoveFromStaffList(StaffList);
+            initManager(StaffList, ceo); //Initalize the Manager List
+            initEmployee(StaffList, ManagerList); //Initialize the Employee List
+            PrintHierarchy(ceo, ManagerList, EmployeeList); //Print the Employee Hierarchy 
+        }
+
+        public static void createData()
+        {
             //Populate the Staff List with Objects
             StaffList.Add(new StaffInformation("Alan", 100, 150));
             StaffList.Add(new StaffInformation("Martin", 220, 100));
@@ -21,13 +35,6 @@ namespace EmployeeHierarchy
             StaffList.Add(new StaffInformation("Alex", 275, 100));
             StaffList.Add(new StaffInformation("Steve", 400, 150));
             StaffList.Add(new StaffInformation("David", 190, 400));
-            CEO ceo = new CEO(StaffList); //Create new CEO 
-            //StaffInformation si = new StaffInformation("Jamie", 150);
-            StaffList.RemoveAt(2); //########## NEED TO REMOVE THIS ##################
-
-            initManager(StaffList, ceo); //Initalize the Manager List
-            initEmployee(StaffList, ManagerList); //Initialize the Employee List
-            PrintHierarchy(ceo, ManagerList, EmployeeList); //Print the Employee Hierarchy 
         }
 
         public static void initManager(List<StaffInformation> StaffList, CEO ceo)
@@ -51,10 +58,8 @@ namespace EmployeeHierarchy
             {
                 foreach (var sl in StaffList)
                 {
-                    Console.WriteLine("Staff: " + sl.Name + " (" + sl.ManagerId + ")" + "Manager:" + mn.Name + "(" + mn.StaffId + ")");
                     if (sl.ManagerId == mn.StaffId)
                     {
-                        Console.WriteLine("Matches: " + mn.Name +"("+mn.StaffId+")" + "&"+ sl.Name + "(" + sl.StaffId + ")");
                         EmployeeList.Add(new Employee(sl.Name, sl.StaffId, sl.ManagerId));
                     }
                 }
