@@ -3,11 +3,12 @@ using System.Collections.Generic;
 
 namespace EmployeeHierarchy
 {
-    public class CEO:Manager
+    public class CEO:Employee
     {
         public CEO(String Name, int StaffId)
         {
-            ManagerId = 0;
+            this.ManagerId = 0;
+            this.Name = Name;
         }
     }
 }

@@ -3,7 +3,6 @@ namespace EmployeeHierarchy
 {
     public class Manager:Employee
     {
-        public Manager() { }
         public Manager(String Name, int StaffId, int ManagerId)
         {
             this.Name = Name;

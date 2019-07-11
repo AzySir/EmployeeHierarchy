@@ -13,20 +13,16 @@ namespace EmployeeHierarchy
         public static void Main(string[] args)
         {
             displayEmployeeHierarchy(); //Call the Main Functionality
-            //CEO n = new CEO("Adam", 123);
-            //Employee b = new Employee("Adam", 123);
-
-            //Console.WriteLine("CEO: "+n.Name +"|"+n.StaffId);
-            //Console.WriteLine("Employee: " + b.Name + "|" + b.StaffId);
         }
 
+        //Display Employee Hierarchy 
         public static void displayEmployeeHierarchy()
         {
             EmployeeReader er = new EmployeeReader(); 
-            EmployeeList = er.GetData();
+            EmployeeList = er.GetData(); //Get Employee List
 
             EmployeePrinter ep = new EmployeePrinter(EmployeeList);
-            ep.PrintHierarchy();            
+            ep.PrintHierarchy();  //Print Employee List
         }
     }
 }

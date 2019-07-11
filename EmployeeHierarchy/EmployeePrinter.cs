@@ -41,15 +41,13 @@ namespace EmployeeHierarchy
                     }
                 }
             }
-            
-            //PrintAllEmployees(OnlyEmployeeList);
         }
 
         public void PrintHierarchy()
         {
-            List<Employee> OnlyEmployeeList = employees.Where(x => x.GetType() == typeof(Employee)).ToList();
-            List<Employee> OnlyManagerList = employees.Where(x => x.GetType() == typeof(Manager)).ToList();
-            List<Employee> OnlyCEOList = employees.Where(x => x.GetType() == typeof(CEO)).ToList();
+            List<Employee> OnlyEmployeeList = employees.Where(x => x.GetType() == typeof(Employee)).ToList(); //Filter Employee Object Types
+            List<Employee> OnlyManagerList = employees.Where(x => x.GetType() == typeof(Manager)).ToList(); //Filter Manager by Object Type
+            List<Employee> OnlyCEOList = employees.Where(x => x.GetType() == typeof(CEO)).ToList(); //Filter CEO by Object Type
             Console.WriteLine("______________________"); //Start
             PrintCEO(OnlyCEOList);
             PrintManagersAndEmployees(OnlyManagerList, OnlyEmployeeList);
