@@ -23,6 +23,8 @@ namespace EmployeeHierarchy
 
             EmployeePrinter ep = new EmployeePrinter(EmployeeList);
             ep.PrintHierarchy();  //Print Employee List
+
+            Console.ReadLine(); //Keeps the terminal open 
         }
     }
 }
