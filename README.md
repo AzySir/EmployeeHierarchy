@@ -26,3 +26,7 @@ Try to cover all the possible scenarios, for example an employee with no manager
 manager who is not valid employee; etc.<br />
 Pay more attention on writing the actual logic of representing the employee tabular data into
 the hierarchical format.
+
+<hr /> 
+<h2>Run Project</h2>
+The project was built using C#. The <span style="font-weight:bold">Main.cs</span> is the beginning of the project. 
